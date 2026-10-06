@@ -5,7 +5,7 @@ name = "amadeus.flightofferssearch"
 version = "2.0.0"
 license = ["Apache-2.0"]
 authors = ["Ballerina"]
-keywords = ["Vendor/Amadeus", "Area/Other", "Type/Connector"]
+keywords = ["Vendor/Amadeus", "Area/E-Commerce", "Type/Connector"]
 icon = "icon.png"
 repository = "https://github.com/ballerina-platform/module-ballerinax-amadeus.flightofferssearch"
 
