@@ -651,6 +651,7 @@
               "example": "EUR"
             },
             "additionalServices": {
+              "description": "Prices of the additional services",
               "type": "array",
               "title": "AdditionalServices",
               "items": {
@@ -678,6 +679,7 @@
       "description": "a fee",
       "properties": {
         "amount": {
+          "description": "Amount of the fee",
           "type": "string",
           "example": "332.70"
         },
@@ -701,10 +703,12 @@
       "type": "object",
       "properties": {
         "amount": {
+          "description": "Amount of the tax",
           "type": "string",
           "example": "332.70"
         },
         "code": {
+          "description": "Code of the tax",
           "type": "string",
           "example": "MX"
         }
@@ -1347,6 +1351,7 @@
                     "additionalServices": {
                       "type": "object",
                       "title": "AdditionalServicesRequest",
+                      "description": "Additional services requested for the segment, such as chargeable checked bags, seats or other services",
                       "properties": {
                         "chargeableCheckedBags": {
                           "title": "chargeableCheckedBags",
@@ -1562,6 +1567,7 @@
     },
     "AllotmentDetails": {
       "title": "AllotmentDetails",
+      "description": "Details of the allotment the booking class belongs to",
       "type": "object",
       "properties": {
         "tourName": {

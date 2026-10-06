@@ -80,10 +80,13 @@ public type LocationEntry record {|
 
 # a tax
 public type Tax record {
+    # Amount of the tax
     string amount?;
+    # Code of the tax
     string code?;
 };
 
+# Additional services requested for the segment, such as chargeable checked bags, seats or other services
 public type AdditionalServicesRequest record {
     # Details of chargeable checked bags
     ChargeableCheckedBags chargeableCheckedBags?;
@@ -276,6 +279,7 @@ public type CollectionLinks record {
 public type FareDetailsBySegment record {
     # True if the corresponding booking class is in an allotment
     boolean isAllotment?;
+    # Additional services requested for the segment, such as chargeable checked bags, seats or other services
     AdditionalServicesRequest additionalServices?;
     # baggageAllowance
     BaggageAllowance includedCheckedBags?;
@@ -292,6 +296,7 @@ public type FareDetailsBySegment record {
     SliceDiceIndicator sliceDiceIndicator?;
     # The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled
     string brandedFare?;
+    # Details of the allotment the booking class belongs to
     AllotmentDetails allotmentDetails?;
 };
 
@@ -445,6 +450,7 @@ public type AdditionalService record {
     AdditionalServiceType 'type?;
 };
 
+# Details of the allotment the booking class belongs to
 public type AllotmentDetails record {
     # The tour name agreed for this specific allotment
     string tourName?;
@@ -531,6 +537,7 @@ public type FlightSegment record {
 
 # price information
 public type ExtendedPrice record {
+    # Prices of the additional services
     AdditionalService[] additionalServices?;
     # BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated
     string margin?;
@@ -601,6 +608,7 @@ public type ExtendedTravelerInfo TravelerInfo;
 
 # a fee
 public type Fee record {
+    # Amount of the fee
     string amount?;
     # type of fee
     FeeType 'type?;

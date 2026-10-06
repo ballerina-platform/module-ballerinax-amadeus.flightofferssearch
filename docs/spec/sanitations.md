@@ -29,6 +29,11 @@ These changes are done in order to improve the overall usability, and as workaro
 - **Updated**: Replaced it with a one-line summary: "Searches for and prices flight offers with the Amadeus Flight Offers Search API."
 - **Reason**: The client class doc should say what the client does; setup guidance belongs in the setup docs.
 
+5. Add missing field descriptions
+- **Original**: `Tax.amount`, `Tax.code`, `Fee.amount` and the `additionalServices` array of the extended price had no `description`, and the `AllotmentDetails` and `AdditionalServicesRequest` schemas had none either, so the fields that reference them were undocumented.
+- **Updated**: Added a `description` to each of those properties and to the two schemas.
+- **Reason**: Removes the `undocumented field` warnings from the generated `types.bal`. A description beside a `$ref` is not carried into the generated field, so the referenced schemas carry it instead.
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
