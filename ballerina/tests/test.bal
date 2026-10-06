@@ -18,12 +18,17 @@
 import ballerina/http;
 import ballerina/os;
 import ballerina/test;
+import ballerina/time;
 
 final boolean isLiveServer = os:getEnv("IS_LIVE_SERVER") == "true";
 final string serviceUrl = isLiveServer ? "https://test.api.amadeus.com/v2/shopping" : "http://localhost:9090/v2/shopping";
 final string tokenUrl = isLiveServer ? "https://test.api.amadeus.com/v1/security/oauth2/token" : "http://localhost:9444/oauth2/token";
 final string clientId = isLiveServer ? os:getEnv("AMADEUS_CLIENT_ID") : "test_client_id";
 final string clientSecret = isLiveServer ? os:getEnv("AMADEUS_CLIENT_SECRET") : "test_client_secret";
+// Live searches need a future date, so they search 30 days ahead; mock searches use a fixed date.
+final string departureDate = isLiveServer
+    ? time:utcToString(time:utcAddSeconds(time:utcNow(), <decimal>(30 * 24 * 60 * 60))).substring(0, 10)
+    : "2026-11-01";
 
 // The OAuth2 client fetches a token on construction, so the client is created inside each test,
 // after the mock token endpoint has started.
@@ -39,7 +44,7 @@ function initClient() returns Client|error => new (
 function testGetFlightOffers() returns error? {
     Client amadeus = check initClient();
     FlightOffersResponse response = check amadeus->getFlightOffers(
-        originLocationCode = "MAD", destinationLocationCode = "ATH", departureDate = "2026-11-01", adults = 1, max = 2);
+        originLocationCode = "MAD", destinationLocationCode = "ATH", departureDate = departureDate, adults = 1, max = 2);
     test:assertTrue(response.data.length() > 0);
 }
 
@@ -52,7 +57,7 @@ function testSearchFlightOffers() returns error? {
                 id: "1",
                 originLocationCode: "MAD",
                 destinationLocationCode: "ATH",
-                departureDateTimeRange: {date: "2026-11-01"}
+                departureDateTimeRange: {date: departureDate}
             }
         ],
         travelers: [{id: "1", travelerType: "ADULT"}],

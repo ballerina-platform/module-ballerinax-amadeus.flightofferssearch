@@ -13,17 +13,15 @@ This connector supports version 2.9.1 of the Flight Offers Search API.
 
 ## Setup guide
 
-To use the Amadeus Flight Offers Search connector you need an API key and an API secret.
+To use the Amadeus Flight Offers Search connector you need an API key and an API secret for the Amadeus Flight Offers Search API.
 
-1. Create an account on the [Amadeus for Developers](https://developers.amadeus.com/register) portal and sign in.
+> **Note:** Amadeus decommissioned its Self-Service APIs portal on 17 July 2026 and disabled the API keys issued through it, including those for the `https://test.api.amadeus.com` test environment that the connector uses by default. The [Amadeus for Developers](https://developers.amadeus.com/) portal now serves Amadeus Enterprise APIs only, so new credentials are available only to Amadeus Enterprise customers.
 
-2. Open **My Self-Service Workspace** and select **Create new app**.
+1. Obtain access to the Flight Offers Search API through an Amadeus Enterprise agreement, using the [Amadeus for Developers](https://developers.amadeus.com/) portal.
 
-3. Enter an application name and create the app.
+2. Get the API key and API secret issued for your application, along with the API and token URLs of your environment.
 
-4. Copy the **API Key** and **API Secret** shown for the app. The connector uses them as the client ID and client secret of the OAuth 2.0 client credentials grant.
-
-> **Note:** New apps start in the test environment, served from `https://test.api.amadeus.com`, which returns a limited set of data. To use production data, request production access in the portal and pass the production URL as the `serviceUrl` when you create the client.
+3. The connector uses the API key and API secret as the client ID and client secret of the OAuth 2.0 client credentials grant. When you create the client, pass the API URL as the `serviceUrl` and the token URL as `auth.tokenUrl`.
 
 ## Quickstart
 

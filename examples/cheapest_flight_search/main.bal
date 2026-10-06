@@ -11,6 +11,12 @@ configurable int adults = 1;
 configurable int maxOffers = 20;
 
 public function main() returns error? {
+    if adults < 1 || adults > 9 {
+        return error("adults must be between 1 and 9");
+    }
+    if maxOffers < 1 {
+        return error("maxOffers must be at least 1");
+    }
     flightofferssearch:Client amadeus = check new ({auth: {clientId, clientSecret}});
 
     // Search for offers on the requested route and date.
