@@ -6,7 +6,7 @@
 
 ## Overview
 
-[Amadeus](https://amadeus.com/) is a global travel technology company, and its [Flight Offers Search](https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search) API returns flight offers with prices, itineraries and fare details for a given route, date and set of travellers. The Amadeus Flight Offers Search connector lets Ballerina applications query that API, either with a simple search by origin, destination and date or with a full search request for multi-city trips and advanced criteria.
+[Amadeus](https://amadeus.com/) is a global travel technology company. Its [Flight Offers Search](https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search) API returns priced flight offers for a route, date and set of travellers. The connector lets applications search by origin, destination and date, or send a full request for multi-city trips and advanced criteria.
 
 This connector supports version 2.9.1 of the Flight Offers Search API.
 
